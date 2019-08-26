@@ -2,33 +2,47 @@
 
 const quotesArray = [
   {
-    quote:
+    text:
       "There are still many causes worth sacrificing for, so much history yet to be made",
-    autor: "Michelle Obama"
+    author: "Michelle Obama"
   },
   {
-    quote: "Luck is when an opportunity comes along and you're prepared for it",
-    autor: "Denzel Washington"
+    text: "Luck is when an opportunity comes along and you're prepared for it",
+    author: "Denzel Washington"
   },
-  { quote: "Turn your wounds into wisdom", autor: "Oprah Winfrey" },
+  { text: "Turn your wounds into wisdom", author: "Oprah Winfrey" },
   {
-    quote:
+    text:
       "Success is a lousy teacher. It seduces smart people into thinking they can't lose",
-    autor: "Bill Gates"
+    author: "Bill Gates"
   }
 ];
 
-let randomQuoteIndex = () => Math.floor(Math.random() * quotesArray.length);
+let quote = {};
+
+function getRandomQuote() {
+  let quoteIndex = quotesArray[Math.floor(Math.random() * quotesArray.length)];
+
+  return (quote = {
+    text: quoteIndex.text,
+    author: quoteIndex.author
+  });
+}
 
 //Triggers
 $(document).ready(function() {
   (function() {
-    const currentQuoteIndex = quotesArray[randomQuoteIndex()];
-    $("#text").text(currentQuoteIndex.quote);
-    $("#author").text(`~ ${currentQuoteIndex.autor}`);
+    $("#text").text(getRandomQuote().text);
+    $("#author").text(`~ ${getRandomQuote().author}`);
   })();
 
   $("#new-quote").click(event => {
-    $("#text").text(quotesArray[randomQuoteIndex()].quote);
+    $("#text").text(getRandomQuote().text);
+    $("#author").text(`~ ${getRandomQuote().author}`);
+  });
+
+  $("a").click(event => {
+    let url = "https://twitter.com/intent/tweet?hashtags=quotes&text=";
+    $("#tweet-quote").attr("href", url.concat(quote.text));
   });
 });

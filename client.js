@@ -32,13 +32,15 @@ function getRandomQuote() {
 //Triggers
 $(document).ready(function() {
   (function() {
-    $("#text").text(getRandomQuote().text);
-    $("#author").text(`~ ${getRandomQuote().author}`);
+    getRandomQuote();
+    $("#text").text(quote.text);
+    $("#author").text(`~ ${quote.author}`);
   })();
 
   $("#new-quote").click(event => {
-    $("#text").text(getRandomQuote().text);
-    $("#author").text(`~ ${getRandomQuote().author}`);
+    getRandomQuote();
+    $("#text").text(quote.text);
+    $("#author").text(`~ ${quote.author}`);
   });
 
   $("a").click(event => {

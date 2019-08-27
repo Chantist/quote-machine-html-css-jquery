@@ -3,6 +3,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+      integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+"
+      crossorigin="anonymous"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <title>Quote Machine</title>
   </head>
@@ -11,10 +17,15 @@
       <div id="quote-box">
         <p id="text"></p>
         <p id="author"></p>
-        <button id="new-quote">New Quote</button>
-        <a id="tweet-quote" href="#" target="_blank">Tweet Code</a>
+        <div id="btns">
+          <button id="new-quote">New Quote</button>
+          <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank"
+            ><i class="fa fa-twitter"></i
+          ></a>
+        </div>
       </div>
     </div>
+    <p id="signature">by: <b>Syshelle Chantilou</b></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="client.js"></script>
   </body>
